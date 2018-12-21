@@ -1,0 +1,30 @@
+# This template file will have its environment variables expanded
+# and the .template extension removed by the bash-template Wercker step.
+# See wercker.yml.
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nodesample
+  labels:
+    commit: ${WERCKER_GIT_COMMIT}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodesample
+  template:
+    metadata:
+      labels:
+        app: nodesample
+        commit: ${WERCKER_GIT_COMMIT}
+    spec:
+      containers:
+      - name: werckernodedemo
+        image: ${DOCKER_REPO}:${WERCKER_GIT_COMMIT}
+        ports:
+        - name: nodesample
+          containerPort: 3000
+          protocol: TCP
+      imagePullSecrets:
+      - name:  ${OKE_IMAGESECRET}
