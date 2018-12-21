@@ -1,0 +1,19 @@
+# This template file will have its environment variables expanded
+# and the .template extension removed by the bash-template Wercker step.
+# See wercker.yml.
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodesample
+  labels:
+    app: nodesample
+    commit: ${WERCKER_GIT_COMMIT}
+spec:
+  ports:
+  - port: 80
+    targetPort: 3000
+  selector:
+    app: nodesample
+    commit: ${WERCKER_GIT_COMMIT}
+  type: LoadBalancer
