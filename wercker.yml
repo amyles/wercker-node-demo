@@ -45,7 +45,7 @@ build:
             username: $DOCKER_USERNAME
             password: $DOCKER_PASSWORD
             repository: $DOCKER_REPO
-            registry: https://iad.ocir.io/v2
+            #registry: https://iad.ocir.io/v2
             
 deploy-to-kubernetes:
     box: node:current-slim
