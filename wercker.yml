@@ -8,6 +8,7 @@ box: node:current-slim
 # Read more about pipelines on our dev center
 # https://devcenter.wercker.com/development/pipelines/
 
+
 # You can also use services such as databases. Read more on our dev center:
 # https://devcenter.wercker.com/administration/services/
 # services:
